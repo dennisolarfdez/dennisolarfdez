@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @dennisolarfdez
 - 👀 I’m interested in ...Crypto
 - 🌱 I’m currently learning ...All
-- 💞️ I’m looking to collaborate on ...
+- 💞️ I’m collaborating on ... Crypto Adoption 
 - 📫 How to reach me ... Twitter: Real_Dennis_S_F 
 
 <!---
