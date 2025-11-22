@@ -1,0 +1,33 @@
+{
+  "minato": {
+    "slug": "minato",
+    "label": "Minato Testnet",
+    "chainId": "0x79a",
+    "rpcUrls": ["https://rpc.minato.soneium.org"],
+    "blockExplorerUrls": ["https://soneium-minato.blockscout.com/"],
+    "nativeCurrency": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
+    "master": "0x3c8e81b5a1cFC49C068873027552A28E566148Fd",
+    "cTokens": [
+      {
+        "symbol": "cASTR",
+        "underlyingSymbol": "ASTR",
+        "icon": "icons/astr.svg",
+        "address": "0xC07274A87c6B3923A11a66dECbB743D8CA2ED28C",
+        "underlying": "0x26e6f7c7047252DdE3dcBF26AA492e6a264Db655",
+        "underlyingDecimals": 18,
+        "skipAllowance": true
+      },
+      {
+        "symbol": "cUSDC",
+        "underlyingSymbol": "USDC",
+        "icon": "icons/usdc.svg",
+        "address": "0x5fC00A498E7078ADd47C9CAC2AD181d7E318a577",
+        "underlying": "0xE9A198d38483aD727ABC8b0B1e16B2d338CF0391",
+        "underlyingDecimals": 6,
+        "skipAllowance": false
+      }
+    ],
+    "blocksPerYear": 15768000,
+    "enabled": true
+  }
+}

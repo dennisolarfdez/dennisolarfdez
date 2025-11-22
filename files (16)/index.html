@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lending Simple (Estable)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%230d0f11'/><path d='M18 42 L32 18 L46 42 Z' fill='%232d6cdf'/></svg>">
+  <style>
+    body { background:#0d0f11; color:#fff; font-family:Arial,system-ui,sans-serif; margin:0; padding:20px; }
+    .flex { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .tag  { background:#223042; padding:4px 8px; border-radius:6px; font-size:11px; }
+    select, button, input { background:#1e1e1e; color:#fff; border:1px solid #333; padding:8px; border-radius:8px; }
+    button { background:#2d6cdf; border:none; cursor:pointer; font-weight:600; }
+    button:hover { background:#1f5fb4; }
+    table { width:100%; border-collapse:collapse; font-size:12.5px; }
+    th, td { padding:6px 5px; border-bottom:1px solid #222; text-align:left; vertical-align:middle; }
+    th { font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:#8fa2b7; }
+    .warn { color:#ffb347; font-weight:bold; }
+    .danger { color:#ff5555; font-weight:bold; }
+    .assetCell { display:flex; align-items:center; gap:6px; }
+    .assetCell img { width:20px; height:20px; border-radius:50%; object-fit:cover; }
+    .muted { color:#8fa2b7; font-size:11px; }
+  </style>
+</head>
+<body>
+  <h1>Panel Lending (Estable)</h1>
+
+  <div class="flex">
+    <button id="btnConnect">Conectar Wallet</button>
+    <button id="btnEnter">Enter Markets</button>
+    <select id="networkSelect"></select>
+    <span id="networkTag" class="tag">Red: —</span>
+    <span id="walletAddr" class="tag">No conectado</span>
+    <span id="txStatus" class="tag" style="background:#1e2430;">Listo</span>
+  </div>
+
+  <hr/>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div>
+      <h2>Mercados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Asset</th>
+            <th>Supply (cTokens)</th>
+            <th>Supply APY</th>
+            <th>Borrow (Underlying)</th>
+            <th>Borrow APY</th>
+            <th>Usuario</th>
+          </tr>
+        </thead>
+        <tbody id="marketsBody"></tbody>
+      </table>
+      <p class="muted">APY estimado (composición por bloque). Puede variar.</p>
+    </div>
+    <div>
+      <h2>Cuenta</h2>
+      <p>Health Factor: <span id="hfValue">—</span></p>
+      <p>Borrow Power (LiquidationUSD): <span id="liqUSD">—</span></p>
+      <p>BorrowUSD (Deuda actual): <span id="borUSD">—</span></p>
+      <hr/>
+      <h3>Acción</h3>
+      <label>cToken:<br/><select id="actionCToken"></select></label><br/><br/>
+      <label>Tipo:<br/>
+        <select id="actionType">
+          <option value="mint">Deposit (mint)</option>
+          <option value="redeem">Withdraw (redeem)</option>
+          <option value="borrow">Borrow</option>
+          <option value="repay">Repay</option>
+        </select>
+      </label><br/><br/>
+      <label>Monto:<br/><input id="actionAmount" placeholder="Ej: 1" autocomplete="off"/></label><br/><br/>
+      <button id="btnDo">Ejecutar</button>
+    </div>
+  </div>
+
+  <!-- Scripts: ethers primero, luego ABIs, luego config y por último main -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js" defer></script>
+  <script src="./abis.js" defer></script>
+  <script src="./config.js" defer></script>
+  <script src="./main.js" defer></script>
+</body>
+</html>
